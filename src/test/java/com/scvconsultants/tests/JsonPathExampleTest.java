@@ -1,7 +1,14 @@
 package com.scvconsultants.tests;
 
 import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
 import org.testng.annotations.Test;
+
+import java.io.IOException;
 
 import static org.hamcrest.Matchers.equalTo;
 
@@ -42,7 +49,7 @@ public class JsonPathExampleTest {
 
     @Test
     public void showAllRepos() {
-        var response = RestAssured.get("https://api.github.com/users/misiekofski/repos")
+        String response = RestAssured.get("https://api.github.com/users/misiekofski/repos")
                 .path("name");
         System.out.println(response);
     }
