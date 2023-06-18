@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class UserJsonPlaceholderDemo {
+public class UserJsonPlaceholderDemoTest {
 
     final static String BASE_URL = "https://jsonplaceholder.typicode.com/users";
 
@@ -19,5 +19,15 @@ public class UserJsonPlaceholderDemo {
                 .getList(".", User.class);
 
         System.out.println(users.get(0).getName());
+    }
+
+
+    @Test
+    public void mapJsonPlaceholderFirstUser() {
+        User firstUser = RestAssured.get(BASE_URL + "/1")
+                .as(User.class);
+
+        System.out.println(firstUser.getName());
+        System.out.println(firstUser.getCompany().getBs());
     }
 }
