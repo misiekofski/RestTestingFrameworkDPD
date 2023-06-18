@@ -6,11 +6,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class User {
 
-    public String login;
-    public int id;
+    private String login;
+    private int id;
 
-    @JsonProperty("public_repos")
-    public int publicRepos;
+    private int publicRepos;
 
     public String getLogin() {
         return login;
